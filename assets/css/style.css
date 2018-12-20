@@ -1,0 +1,36 @@
+/* .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  } */
+
+#button {
+
+    background-color: rgb(83, 180, 120);
+    text-align:center;
+    margin-left: 480px;
+}
+
+p {
+text-align: center;
+
+}
+.display-4 {
+background-color: rgb(202, 224, 205);
+text-align: center;
+}
+
+.lead {
+    text-align: center;
+}
+
+
+.btn-toolbar {
+      float: right;
+}
+
+.btn-secondary {
+    background-color: blue;
+}
+
