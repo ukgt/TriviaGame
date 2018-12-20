@@ -1,26 +1,26 @@
 
 // PseudoCode:
-// 1. Build container
-// 2. decide on layout - 1 container; 2 halves of the page ; 4 rows - question, answer, answer, right/wrong feedback
-// 3. each question will have 4 multiple choice answers
-// 4.START button will start game
-// 4. Timer set to 30 seconds to answer all questions
+// 4.WHEN the user clicks START button this starts timer - ON CLICK EVENT
+// 4. Timer starts and counts down from 30 seconds to answer all questions (time count down function)
+// 5. IF timer runs out - log loss => html to player - "you lost, click start to play again"
+// 7. reset game function
 // 5. click on correct answer => correct will play audio (bell)
 // 6. if incorrect answer => moves to next question (play audio buzzer)
 // 7. total correct/incorrect after last question
 // 8. do percentage grade correct/total # of <i class
-let timeReamining = 30;
+
+let timeRemaining = 30;
+
 $(document).ready(function() {
   $("#start").on("click", function() {
-    let timerCount = setInterval(function()  ) {
-      $("#button").html("Time remaining: " + "00:" + timeReamining + "secs");
+    let timerCount = setInterval(function()   {
+      $("#button").html("Time remaining: " + timeRemaining + "secs");
+      timeRemaining--;
     }, 1000);
-    {
-      //timerCount.start();
-    }
+
   });
-});
-//var anInterval = setInterval(ALWAYS A Function, miliseconds between interval)
+
+//var anInterval = setInterval(ALWAYS A Function, milliseconds between interval)
 
 let questions = [
   {
@@ -89,6 +89,6 @@ let timerCount = 30;
 
 // event delegation
 //$("p").on("click", function() {});
-
+});
 
 
