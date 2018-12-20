@@ -81,7 +81,9 @@ $(document).ready(function() {
   // ex. 1st quesiton. 4 buttons, each button will hold its individual value.
   // if value of buttons == answer THEN change the button color to green. 
   //else if value != answer THEN change color to red.
-   if( value === questionsList.title1.answer) {
+
+  $(btn-toolbar).on("click", function(){
+    if( value === questionsList.title1.answer.options) {
       //change color to green with jquery
       $(questionsList.answer).css("color", "green");
    }
@@ -89,6 +91,9 @@ $(document).ready(function() {
      // change color to red.
 
    }
+
+  })
+ 
   
  
 
