@@ -1,4 +1,3 @@
-
 // PseudoCode:
 // WHEN the user clicks START button this starts timer - ON CLICK EVENT
 // Timer starts and counts down from 45 seconds to answer all questions (time count down function)
@@ -13,11 +12,11 @@ let options;
 let answer;
 let questionCounter = 0;
 let selections = [];
-let quiz = $('#quiz');
+let quiz = $("#quiz");
 
 $(document).ready(function() {
   $("#start").on("click", function() {
-    let timerCount = setInterval(function()   {
+    let timerCount = setInterval(function() {
       $("#button").html("Time remaining: " + timeRemaining + "secs");
       timeRemaining--;
       clearFunction();
@@ -25,33 +24,33 @@ $(document).ready(function() {
     let clearFunction = function() {
       if (timeRemaining === 0) {
         console.log("time's up");
-        clearInterval (timerCount);
+        clearInterval(timerCount);
       }
-    }
+    };
   });
 
-//var anInterval = setInterval(ALWAYS A Function, milliseconds between interval)
+  //var anInterval = setInterval(ALWAYS A Function, milliseconds between interval)
 
   let questionsList = {
-     title1: {
+    title1: {
       question: "World War I began in what year?",
       options: ["1917", "1914", "1938", "1923"],
-      answer: options[1]
-      },
-  
-     title2: {
+      answer: 1
+    },
+
+    title2: {
       question: "John F. Kennedy was assisinated in what year?",
       options: ["New York", "Austin", "Dallas", "Miami"],
-      answer: options[2]
-      },
-  
-      title3: {
+      answer: 2
+    },
+
+    title3: {
       question: "The Magna Carta was published by the King of Which counrty",
       options: ["France", "Austria", "Italy", "England"],
-      answer: options[3]
-     },
-  
-      title4: {
+      answer: 3
+    },
+
+    title4: {
       question: "Who invented the first successful printing press?",
       options: [
         "Benjamin Franklin",
@@ -59,17 +58,17 @@ $(document).ready(function() {
         "Martin Luther",
         "Johannes Gutenberg"
       ],
-      answer: options[3]
-     },
-  
-      title5: {
+      answer: 3
+    },
+
+    title5: {
       question: "Who was the first Westerner to reach China?",
       options: ["Magellen", "Cook", "Marco Polo", "Sir Francis Drake"],
-      answer: options[2]
-     }
+      answer: 2
     }
+  };
   // console.log(questions);
-   
+
   //  for (let i = 0; i < questions.length; i++) {
   //   questions[i].options;
   //     console.log(questions[i].options)
@@ -77,28 +76,20 @@ $(document).ready(function() {
 
   //button to trun green when the IF player clicks the correct answer.
   //create a variable that detects what button the player clicked.
-  // Each button will hold a value. the value is the "potential answers.
+  // Each button will hold a value. the value is the possible answer.
   // ex. 1st quesiton. 4 buttons, each button will hold its individual value.
-  // if value of buttons == answer THEN change the button color to green. 
+  // if value of buttons == answer THEN change the button color to green.
   //else if value != answer THEN change color to red.
 
-  $(btn-toolbar).on("click", function(){
-    if( value === questionsList.title1.answer.options) {
+  $(".valbutton").on("click", function() {
+    console.log($(this).attr("correct"));
+
+    if ($(this).attr("correct") === "true") {
       //change color to green with jquery
-      $(questionsList.answer).css("color", "green");
-   }
-   else if ( value != questionsList.answer) {
-     // change color to red.
-
-   }
-
-  })
- 
-  
- 
-
-
-
+      $(this).css("background-color", "green");
+    } else {
+      // change color to red.
+      $(this).css("background-color", "red");
+    }
+  });
 });
-
-
