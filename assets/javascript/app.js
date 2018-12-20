@@ -1,94 +1,99 @@
 
 // PseudoCode:
-// 4.WHEN the user clicks START button this starts timer - ON CLICK EVENT
-// 4. Timer starts and counts down from 30 seconds to answer all questions (time count down function)
-// 5. IF timer runs out - log loss => html to player - "you lost, click start to play again"
-// 7. reset game function
-// 5. click on correct answer => correct will play audio (bell)
-// 6. if incorrect answer => moves to next question (play audio buzzer)
-// 7. total correct/incorrect after last question
-// 8. do percentage grade correct/total # of <i class
+// WHEN the user clicks START button this starts timer - ON CLICK EVENT
+// Timer starts and counts down from 45 seconds to answer all questions (time count down function)
+// IF timer runs out - log loss => html to player - "you lost, click start to play again"
+// click on answer => if correct selection turn green; else incorrect turn red
+// total correct/incorrect after last question
+// do percentage grade correct #/total # questions
 
 let timeRemaining = 30;
+let question;
+let options;
+let answer;
+let questionCounter = 0;
+let selections = [];
+let quiz = $('#quiz');
 
 $(document).ready(function() {
   $("#start").on("click", function() {
     let timerCount = setInterval(function()   {
       $("#button").html("Time remaining: " + timeRemaining + "secs");
       timeRemaining--;
+      clearFunction();
     }, 1000);
-
+    let clearFunction = function() {
+      if (timeRemaining === 0) {
+        console.log("time's up");
+        clearInterval (timerCount);
+      }
+    }
   });
 
 //var anInterval = setInterval(ALWAYS A Function, milliseconds between interval)
 
-let questions = [
-  {
-    question: "World War I began in what year?",
-    options: ["1917", "1914", "1938", "1923"],
-    answer: 1
-  },
+  let questionsList = {
+     title1: {
+      question: "World War I began in what year?",
+      options: ["1917", "1914", "1938", "1923"],
+      answer: options[1]
+      },
+  
+     title2: {
+      question: "John F. Kennedy was assisinated in what year?",
+      options: ["New York", "Austin", "Dallas", "Miami"],
+      answer: options[2]
+      },
+  
+      title3: {
+      question: "The Magna Carta was published by the King of Which counrty",
+      options: ["France", "Austria", "Italy", "England"],
+      answer: options[3]
+     },
+  
+      title4: {
+      question: "Who invented the first successful printing press?",
+      options: [
+        "Benjamin Franklin",
+        "Sir Isaac Newton",
+        "Martin Luther",
+        "Johannes Gutenberg"
+      ],
+      answer: options[3]
+     },
+  
+      title5: {
+      question: "Who was the first Westerner to reach China?",
+      options: ["Magellen", "Cook", "Marco Polo", "Sir Francis Drake"],
+      answer: options[2]
+     }
+    }
+  // console.log(questions);
+   
+  //  for (let i = 0; i < questions.length; i++) {
+  //   questions[i].options;
+  //     console.log(questions[i].options)
+  //  }
 
-  {
-    question: "John F. Kennedy was assisinated in what year?",
-    options: ["New York", "Austin", "Dallas", "Miami"],
-    answer: 2
-  },
+  //button to trun green when the IF player clicks the correct answer.
+  //create a variable that detects what button the player clicked.
+  // Each button will hold a value. the value is the "potential answers.
+  // ex. 1st quesiton. 4 buttons, each button will hold its individual value.
+  // if value of buttons == answer THEN change the button color to green. 
+  //else if value != answer THEN change color to red.
+   if( value === questionsList.title1.answer) {
+      //change color to green with jquery
+      $(questionsList.answer).css("color", "green");
+   }
+   else if ( value != questionsList.answer) {
+     // change color to red.
 
-  {
-    question: "The Magna Carta was published by the King of Which counrty",
-    options: ["France", "Austria", "Italy", "England"],
-    answer: 3
-  },
+   }
+  
+ 
 
-  {
-    question: "Who invented the first successful printing press?",
-    options: [
-      "Benjamin Franklin",
-      "Sir Isaac Newton",
-      "Martin Luther",
-      "Johannes Gutenberg"
-    ],
-    answer: 3
-  },
 
-  {
-    question: "Who was the first Westerner to reach China?",
-    options: ["Magellen", "Cook", "Marco Polo", "Sir Francis Drake"],
-    answer: 2
-  }
-];
 
-// console.log(questions);
-
-for (let i = 0; i < questions.length; i++) {
-  questions[i].answer;
-  //console.log(questions[i].options)
-}
-
-let timerCount = 30;
-// let start = document.querySelector("#start");
-
-//   for (let timerCount = 0; timerCount <= 30; timerCount++) {
-
-//   }
-
-//  let twentySecTimer = setInterval(function() {
-// twentySecTimer--;
-// console.log("twentySecTimer" , twentySecTimer);
-
-// function  timer () {
-// $("#start").on("click", function(){
-
-// });
-
-//clear interval code here
-// let nextQuestion = 0;
-
-// $(".btn-primary").on("click", function(){
-
-// event delegation
-//$("p").on("click", function() {});
 });
 
 
